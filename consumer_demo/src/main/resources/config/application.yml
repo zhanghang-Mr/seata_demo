@@ -1,0 +1,43 @@
+#==================== 安全配置 ============================
+spring:
+  profiles:
+    active: test,peer1
+#==================== 多环境（双节点） ============================
+---
+spring:
+  profiles: peer1
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: pro_tx_group
+
+server:
+  port: 8902
+  servlet:
+    session:
+      timeout: 3600
+  tomcat:
+    uri-encoding: utf-8
+
+ #============模板============ 
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    mode: LEGACYHTML5
+    suffix: .html
+    servlet:
+      content-type: text/html
+  output:
+    ansi:
+      enabled: ALWAYS
+  mvc:
+    favicon:
+      enabled: false
+
+  #============热部署============
+  devtools:
+    restart:
+      enabled: false #热部署生效1
+      additional-paths: java/com/**  #设置重启的目录
+      exclude: resources/**,static/**,templates/**  #该目录下的内容修改不重启

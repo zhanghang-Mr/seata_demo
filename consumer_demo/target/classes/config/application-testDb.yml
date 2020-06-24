@@ -1,0 +1,48 @@
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  config-locations: classpath:mybatis-config.xml
+  type-aliases-package: com.ky.jyg.**.pojo
+#===================== 分页插件 ============================
+pagehelper:
+  helper-dialect: mysql  #分页插件方言选择
+  params: count=countSql  
+  reasonable: true  #合理化参数，设为true时pageNum<=0 时会查第一页， pageNum>pages（超过总数时），会查询最后一页
+  support-methods-arguments: true
+spring:
+  datasource:
+#    druid:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initial-size: 5
+    max-active: 20
+    max-pool-prepared-statement-per-connection-size: 20
+    max-wait: 60000
+    min-idle: 5
+    pool-prepared-statements: true
+    test-on-borrow: true
+    test-on-return: false
+    test-while-idle: true
+#      type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.77.133:3306/test_product_1?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf8&rewriteBatchedStatements=true
+    username: root
+    password: ROOTroot@123
+    validation-query: SELECT 1 FROM DUAL
+    validation-query-timeout: 30000
+
+    type: com.alibaba.druid.pool.DruidDataSource
+#        hikari:
+#          #\u6700\u5C0F\u7A7A\u95F2\u8FDE\u63A5
+#          minimum-idle: 5
+#          #\u6700\u5927\u8FDE\u63A5\u6570
+#          maximum-pool-size: 15
+#          #\u81EA\u52A8\u63D0\u4EA4\u4ECE\u6C60\u4E2D\u8FD4\u56DE\u7684\u8FDE\u63A5
+#          auto-commit: true
+#          #\u7A7A\u95F2\u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4\uFF0C\u9ED8\u8BA4\u503C600000\uFF0810\u5206\u949F\uFF09\uFF0C\u5927\u4E8E\u7B49\u4E8Emax-lifetime\u4E14max-lifetime>0\uFF0C\u4F1A\u88AB\u91CD\u7F6E\u4E3A0\uFF1B\u4E0D\u7B49\u4E8E0\u4E14\u5C0F\u4E8E10\u79D2\uFF0C\u4F1A\u88AB\u91CD\u7F6E\u4E3A10\u79D2\u3002
+#          # \u53EA\u6709\u7A7A\u95F2\u8FDE\u63A5\u6570\u5927\u4E8E\u6700\u5927\u8FDE\u63A5\u6570\u4E14\u7A7A\u95F2\u65F6\u95F4\u8D85\u8FC7\u8BE5\u503C\uFF0C\u624D\u4F1A\u88AB\u91CA\u653E
+#          idle-timeout: 30000
+#          #\u8FDE\u63A5\u6700\u5927\u5B58\u6D3B\u65F6\u95F4.\u4E0D\u7B49\u4E8E0\u4E14\u5C0F\u4E8E30\u79D2\uFF0C\u4F1A\u88AB\u91CD\u7F6E\u4E3A\u9ED8\u8BA4\u503C30\u5206\u949F.\u8BBE\u7F6E\u5E94\u8BE5\u6BD4mysql\u8BBE\u7F6E\u7684\u8D85\u65F6\u65F6\u95F4\u77ED
+#          max-lifetime: 180000
+#          #\u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4:\u6BEB\u79D2
+#          connection-timeout: 30000
+#          #\u8FDE\u63A5\u6D4B\u8BD5\u67E5\u8BE2
+#          connection-test-query: SELECT 1
+#          jdbc-url: jdbc:mysql://192.168.77.133:3306/test_product_1?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf8&rewriteBatchedStatements=true
