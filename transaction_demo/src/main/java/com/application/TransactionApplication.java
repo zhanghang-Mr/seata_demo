@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Import;
 @EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 @SpringBootApplication
 @EnableDiscoveryClient
-@Import(DataSourceConfiguration.class)
 @MapperScan(basePackages = {"com.application.mapper"})  //扫描mapper
 public class TransactionApplication {
     public static void main(String[] args) {
